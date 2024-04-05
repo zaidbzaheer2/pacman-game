@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
     IEnumerator PlayDeadAnimation()
     {
         _deadPlaying = true;
@@ -134,7 +133,10 @@ public class PlayerController : MonoBehaviour
     {
         return _dir;
     }
-
+    public void setNextDir(Vector2 newDir) {
+        {
+            _nextDir = newDir;
+        } }
     public void UpdateScore()
     {
         killstreak++;

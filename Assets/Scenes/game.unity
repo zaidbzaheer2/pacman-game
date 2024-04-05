@@ -15326,6 +15326,7 @@ GameObject:
   - component: {fileID: 508745661}
   - component: {fileID: 508745666}
   - component: {fileID: 508745665}
+  - component: {fileID: 508745667}
   - component: {fileID: 508745664}
   m_Layer: 0
   m_Name: pacman
@@ -15503,6 +15504,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &508745667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508745660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691401e9de7cfee4e8803c220180ca99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509326593
 GameObject:
   m_ObjectHideFlags: 0
