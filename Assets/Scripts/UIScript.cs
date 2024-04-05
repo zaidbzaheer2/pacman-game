@@ -28,13 +28,13 @@ public class UIScript : MonoBehaviour {
 	void Update () 
 	{
 
-        high = GameObject.Find("Game Manager").GetComponent<ScoreManager>().High();
+		//high = GameObject.Find("Game Manager").GetComponent<ScoreManager>().High();
 
         // update score text
-        score = GameManager.score;
-		txt_score.text = "Score\n" + score;
-		txt_high.text = "High Score\n" + high;
-	    txt_level.text = "Level\n" + (GameManager.Level + 1);
+        //score = GameManager.score;
+		//txt_score.text = "Score\n" + score;
+		//txt_high.text = "High Score\n" + high;
+	    //txt_level.text = "Level\n" + (GameManager.Level + 1);
 
 	}
 

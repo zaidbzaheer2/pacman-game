@@ -37,8 +37,8 @@ public class ScoreManager : MonoBehaviour {
     {
         //StartCoroutine("ReadScoresFromDB");
 
-        if (level == 2) StartCoroutine("UpdateGUIText");    // if scores is loaded
-        if (level == 1) _lowestHigh = _highscore = 99999;
+     //   if (level == 2) StartCoroutine("UpdateGUIText");    // if scores is loaded
+      //  if (level == 1) _lowestHigh = _highscore = 99999;
         //if (level == 1) StartCoroutine("GetHighestScore");  // if game is loaded
     }
 
