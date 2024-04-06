@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -72,20 +73,23 @@ public class GameManager : MonoBehaviour {
     void OnLevelWasLoaded()
     {
         if (Level == 0) lives = 3;
+        RefreshGame();
 
+    }
+    public void RefreshGame()
+    {
+        HighScoreManager.highScore = PlayerPrefs.GetInt("HighScore@pacman");
         Debug.Log("Level " + Level + " Loaded!");
+        Text levelText = GameObject.FindGameObjectWithTag("Stats").transform.GetChild(2).GetComponent<Text>();
         AssignGhosts();
         ResetVariables();
-
-
         // Adjust Ghost variables!
         clyde.GetComponent<GhostMove>().speed += Level * SpeedPerLevel;
         blinky.GetComponent<GhostMove>().speed += Level * SpeedPerLevel;
         pinky.GetComponent<GhostMove>().speed += Level * SpeedPerLevel;
         inky.GetComponent<GhostMove>().speed += Level * SpeedPerLevel;
-        pacman.GetComponent<PlayerController>().speed += Level*SpeedPerLevel/2;
+        pacman.GetComponent<PlayerController>().speed += Level * SpeedPerLevel / 2;
     }
-
     private void ResetVariables()
     {
         _timeToCalm = 0.0f;

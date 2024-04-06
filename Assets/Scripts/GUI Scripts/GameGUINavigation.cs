@@ -54,6 +54,10 @@ public class GameGUINavigation : MonoBehaviour {
 					TogglePause();
 			}
 		}
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			LoadLevel();
+		}
 	}
 
 	// public handle to show ready screen coroutine call
@@ -64,7 +68,7 @@ public class GameGUINavigation : MonoBehaviour {
 
     public void H_ShowGameOverScreen()
     {
-        StartCoroutine("ShowGameOverScreen");
+        StartCoroutine(ShowGameOverScreen());
     }
 
 	IEnumerator ShowReadyScreen(float seconds)

@@ -25,8 +25,6 @@ public class SwipeControl : MonoBehaviour
             endTouchPos = Input.GetTouch(0).position;
             float yDistance = Mathf.Abs(endTouchPos.y - startTouchPos.y);
             float xDistance = Mathf.Abs(endTouchPos.x - startTouchPos.x);
-            Debug.Log(("Touch Position: {0}, {1}", startTouchPos, endTouchPos));
-            Debug.Log(("Touch Distances: {0}, {1}", Mathf.Abs(endTouchPos.x - startTouchPos.x), Mathf.Abs(endTouchPos.y - startTouchPos.y)));
             if (xDistance > yDistance)
             {
                 if (endTouchPos.x < startTouchPos.x)

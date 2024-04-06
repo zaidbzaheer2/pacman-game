@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class HighScoreManager : MonoBehaviour
 {
-    [SerializeField] private Text highScoreText, scoreText;
-    private int highScore;
+    private Text highScoreText, scoreText;
+    public static int highScore;
 
+    void InitializeScores()
+    {
+        highScoreText = GameObject.FindGameObjectWithTag("Stats").transform.GetChild(0).GetComponent<Text>();
+        scoreText = GameObject.FindGameObjectWithTag("Stats").transform.GetChild(1).GetComponent<Text>();
+    }    
     private void Start()
     {
+        InitializeScores();
         try
         {
             highScore = PlayerPrefs.GetInt("HighScore@pacman");
@@ -18,10 +24,15 @@ public class HighScoreManager : MonoBehaviour
 
             highScore = 0;
         }
+
     }
     void Update()
     {
-        scoreText.text = $"Score\n{GameManager.score}";
+        if (scoreText != null)
+            scoreText.text = $"Score\n{GameManager.score}";
+        else
+            InitializeScores();
+        if(highScoreText!=null)
         highScoreText.text = $"High Score\n{highScore}";
        if (GameManager.score > highScore)
         {
