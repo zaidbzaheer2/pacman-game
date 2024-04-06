@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
     private GameGUINavigation GUINav;
     private GameManager GM;
     private ScoreManager SM;
-
-    private bool _deadPlaying = false;
+    private SoundPlayer SoundPlayer;
+    public bool _deadPlaying = false;
 
     // Use this for initialization
     void Start()
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
         SM = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
         GUINav = GameObject.Find("UI Manager").GetComponent<GameGUINavigation>();
         _dest = transform.position;
+        SoundPlayer = GameObject.FindGameObjectWithTag("SoundPlayer").GetComponent<SoundPlayer>();
+        SoundPlayer.playAliveSound();
     }
 
     // Update is called once per frame
@@ -58,13 +60,15 @@ public class PlayerController : MonoBehaviour
     {
         _deadPlaying = true;
         GetComponent<Animator>().SetBool("Die", true);
+        SoundPlayer.playDeadSound();
         yield return new WaitForSeconds(1);
+        SoundPlayer.playAliveSound();
         GetComponent<Animator>().SetBool("Die", false);
         _deadPlaying = false;
-
         if (GameManager.lives <= 0)
-        {
+        {;
                 GUINav.H_ShowGameOverScreen();
+            
         }
 
         else

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     //--------------------------------------------------------
     // Game variables
 
-    public static int Level = 0;
+    public static int Level = 1;
     public static int lives = 3;
 
 	public enum GameState { Init, Game, Dead, Scores }
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 
     void OnLevelWasLoaded()
     {
-        if (Level == 0) lives = 3;
+        if (Level == 1) lives = 3;
         RefreshGame();
 
     }
@@ -81,6 +81,8 @@ public class GameManager : MonoBehaviour {
         HighScoreManager.highScore = PlayerPrefs.GetInt("HighScore@pacman");
         Debug.Log("Level " + Level + " Loaded!");
         Text levelText = GameObject.FindGameObjectWithTag("Stats").transform.GetChild(2).GetComponent<Text>();
+        if (levelText != null)
+            levelText.text = $"Level\n{Level}";
         AssignGhosts();
         ResetVariables();
         // Adjust Ghost variables!
@@ -176,7 +178,7 @@ public class GameManager : MonoBehaviour {
     {
         lives--;
         gameState = GameState.Dead;
-    
+        
         // update UI too
         UIScript ui = GameObject.FindObjectOfType<UIScript>();
         Destroy(ui.lives[ui.lives.Count - 1]);
